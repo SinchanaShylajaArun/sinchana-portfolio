@@ -90,6 +90,23 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/SinchanaShylajaArun" }],
   },
   {
+    slug: "sinch-and-save",
+    title: "Sinch & Save",
+    year: "2026 · In progress",
+    summary:
+      "A personal expense tracker for variable part-time income: log earnings and spending, stay under weekly caps, and watch a savings jar grow.",
+    bullets: [
+      "Built a FastAPI backend with SQLAlchemy and PostgreSQL/SQLite for logging earnings and spending, weekly spending caps, savings goals, and analytics.",
+      "Added user accounts with JWT authentication, a demo account, and Alembic database migrations.",
+      "Built a React + Vite frontend with login, sign-up, and a demo entry page, plus a terrarium-style savings jar that grows as you save.",
+      "Organized as independent backend and frontend parts, each with its own tests, CI workflow, and versioned releases.",
+      "Planned next: a paystub RAG feature using the Claude API and pgvector.",
+    ],
+    tags: ["FastAPI", "React", "PostgreSQL", "JWT", "Alembic"],
+    categories: ["Full-stack"],
+    links: [{ label: "GitHub", href: "https://github.com/SinchanaShylajaArun/Sinch-Save" }],
+  },
+  {
     slug: "sign-language",
     title: "Real-Time Sign Language Recognition",
     year: "2026",
@@ -225,7 +242,16 @@ export const education: Degree[] = [
     school: "Rutgers University, New Brunswick",
     when: "Sept 2025 – May 2027",
     gpa: "3.67 / 4.00",
-    coursework: ["Computer Vision", "Foundation Models", "Machine Learning", "Machine Learning II", "Massive Data Mining", "Algorithms"],
+    coursework: [
+      "Machine Learning",
+      "Machine Learning II",
+      "Computer Vision",
+      "Natural Language Processing (NLP)",
+      "Intro to Artificial Intelligence",
+      "Foundation Models",
+      "Massive Data Mining",
+      "Algorithms",
+    ],
   },
   {
     degree: "B.E. Information Science and Engineering",

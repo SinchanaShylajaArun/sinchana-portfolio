@@ -25,7 +25,7 @@ const STOPWORDS = new Set(
     "who whom why will with would you your about tell any some sinchana sinchana's arun " +
     // Vague verbs: "work" matched every job chunk ("Work experience: …") and
     // drowned out the real topic in "what computer vision work has she done?"
-    "work done know")
+    "work done know taken take took")
     .split(" "),
 );
 
@@ -51,7 +51,14 @@ export function tokenize(text: string): string[] {
 
 const SYNONYMS: Record<string, string[]> = {
   ml: ["machine", "learn"],
-  ai: ["ml", "llm", "model"],
+  ai: ["ml", "llm", "model", "artificial", "intelligence"],
+  nlp: ["natural", "language", "processing"],
+  course: ["coursework"],
+  class: ["coursework"],
+  budget: ["expense", "spending", "saving"],
+  money: ["expense", "earning", "saving"],
+  finance: ["expense", "earning", "saving"],
+  auth: ["jwt", "authentication", "login"],
   llm: ["gemini", "rag", "language"],
   cv: ["computer", "vision"],
   vision: ["opencv", "yolo", "mediapipe", "image"],
@@ -158,7 +165,8 @@ export function retrieve(question: string, k = 4): Hit[] {
   // Broad questions ("who is she?") match few keywords: fall back to the profile.
   if (hits.length === 0 || best < 2) {
     const profile = scored.find((h) => h.id === "profile")!;
-    if (!hits.some((h) => h.id === "profile")) hits.unshift(profile);
+    // Real matches (even weak ones) stay first; the profile is a backup at the end.
+    if (!hits.some((h) => h.id === "profile")) hits.push(profile);
   }
   return hits;
 }
