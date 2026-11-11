@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
 import { experience, education, leadership, skills, type Role } from "@/data/resume";
 
-export const metadata: Metadata = { title: "Experience" };
-
-// A small helper component, only used on this page.
 function Entry({ when, title, org, bullets }: { when: string; title: string; org: string; bullets: string[] }) {
   return (
     <div className="entry">
       <div className="when">{when}</div>
       <div>
-        <h3>{title}</h3>
+        <h4 className="entry-title">{title}</h4>
         <div className="org">{org}</div>
         <ul>{bullets.map((b) => <li key={b}>{b}</li>)}</ul>
       </div>
@@ -19,21 +15,22 @@ function Entry({ when, title, org, bullets }: { when: string; title: string; org
 
 const roleEntry = (r: Role) => <Entry key={r.title + r.org} {...r} />;
 
-export default function ExperiencePage() {
+// Section 3: work, education, leadership, skills
+export default function Experience() {
   return (
-    <>
-      <header className="container page-head">
+    <section id="experience" className="scroll-section">
+      <header className="container section-head">
         <div className="kicker">Experience and education</div>
-        <h1>Where I&apos;ve been.</h1>
+        <h2 className="section-title">Where I&apos;ve been.</h2>
         {/* Add your PDF as /public/resume.pdf and this link works */}
         <div className="ctas"><a className="btn" href="/resume.pdf" download>Download résumé (PDF)</a></div>
       </header>
 
-      <section className="container timeline">
-        <h2>Work</h2>
+      <div className="container timeline">
+        <h3 className="timeline-heading">Work</h3>
         {experience.map(roleEntry)}
 
-        <h2>Education</h2>
+        <h3 className="timeline-heading">Education</h3>
         {education.map((d) => (
           <Entry
             key={d.degree}
@@ -44,13 +41,13 @@ export default function ExperiencePage() {
           />
         ))}
 
-        <h2>Leadership</h2>
+        <h3 className="timeline-heading">Leadership</h3>
         {leadership.map(roleEntry)}
-      </section>
+      </div>
 
-      <section className="stripes band" style={{ marginTop: 56 }}>
+      <div className="stripes band" style={{ marginTop: 56 }}>
         <div className="container">
-          <div className="panel panel-title"><h2>Skills</h2></div>
+          <div className="panel panel-title"><h3 className="panel-heading">Skills</h3></div>
           <div className="skill-grid">
             {skills.map((s) => (
               <div className="panel" key={s.group}>
@@ -60,7 +57,7 @@ export default function ExperiencePage() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

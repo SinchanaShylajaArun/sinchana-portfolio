@@ -4,17 +4,21 @@ My personal portfolio site, with a small **retrieval-augmented generation (RAG)*
 
 Built with Next.js 15 (App Router), TypeScript, and the Claude API.
 
-## Pages
+## Layout
 
-| Route | What's there |
+A single scrolling page with a sticky nav that jumps to each section and highlights the one on screen:
+
+| Section | What's there |
 |---|---|
-| `/` | Intro, about, and highlights |
-| `/projects` | Projects and hackathons, filterable, each card expands in place |
-| `/experience` | Work, education, leadership, and skills |
-| `/ask` | The AI assistant |
-| `/contact` | Contact links and a message form |
+| `#top` | Intro, photo, about, and highlights |
+| `#projects` | Projects and hackathons, filterable, each card expands in place |
+| `#experience` | Work, education, leadership, and skills |
+| `#ask` | The AI assistant |
+| `#contact` | Contact links and a message form |
 
-All content comes from one file, [`data/resume.ts`](data/resume.ts). Editing it updates every page **and** what the assistant knows.
+Each section is its own component in [`components/sections/`](components/sections). Old page URLs (`/projects`, `/experience`, …) redirect to the matching section.
+
+All content comes from one file, [`data/resume.ts`](data/resume.ts). Editing it updates every section **and** what the assistant knows.
 
 ## How the assistant works
 

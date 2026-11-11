@@ -41,7 +41,7 @@ export function buildChunks(): Chunk[] {
     id: "profile",
     title: "About Sinchana",
     section: "Profile",
-    href: "/",
+    href: "#top",
     text: sentence([
       `${profile.fullName} (${profile.name}) is based in ${profile.location}.`,
       // profile.about is written as "I'm…" for the Home page; a chunk must be
@@ -59,7 +59,7 @@ export function buildChunks(): Chunk[] {
       id: `project:${p.slug}`,
       title: p.title,
       section: "Project",
-      href: "/projects",
+      href: "#projects",
       text: sentence([
         `Project: ${p.title} (${p.year}).`,
         p.summary,
@@ -76,7 +76,7 @@ export function buildChunks(): Chunk[] {
       id: `hackathon:${h.slug}`,
       title: `${h.title} (${h.event})`,
       section: "Hackathon",
-      href: "/projects",
+      href: "#projects",
       text: sentence([
         `Hackathon project: ${h.title}, built at ${h.event}. Result: ${h.award}.`,
         h.summary,
@@ -91,7 +91,7 @@ export function buildChunks(): Chunk[] {
       id: `experience:${r.title}:${r.org}`,
       title: `${r.title}, ${r.org.split(/[,·]/)[0].trim()}`,
       section: "Experience",
-      href: "/experience",
+      href: "#experience",
       text: sentence([`Work experience: ${r.title} at ${r.org}, ${r.when}.`, ...r.bullets]),
     });
   }
@@ -102,7 +102,7 @@ export function buildChunks(): Chunk[] {
       id: `education:${d.degree}`,
       title: `${d.degree}, ${d.school.split(",")[0]}`,
       section: "Education",
-      href: "/experience",
+      href: "#experience",
       text: `Education: ${d.degree} at ${d.school}, ${d.when}. GPA ${d.gpa}. Coursework: ${d.coursework.join(", ")}.`,
     });
   }
@@ -112,7 +112,7 @@ export function buildChunks(): Chunk[] {
       id: `leadership:${r.title}`,
       title: r.title,
       section: "Leadership",
-      href: "/experience",
+      href: "#experience",
       text: sentence([`Leadership: ${r.title}, ${r.org}.`, ...r.bullets]),
     });
   }
@@ -122,7 +122,7 @@ export function buildChunks(): Chunk[] {
     id: "skills",
     title: "Skills",
     section: "Skills",
-    href: "/experience",
+    href: "#experience",
     text: "Technical skills. " + skills.map((s) => `${s.group}: ${s.items.join(", ")}.`).join(" "),
   });
 

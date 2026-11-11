@@ -3,7 +3,6 @@
 // in state, sends each question to /api/ask, and shows the answer as it streams in.
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import type { Source } from "@/lib/rag/answer";
 
 type Message = { role: "user" | "assistant"; content: string; sources?: Source[] };
@@ -99,7 +98,7 @@ export default function Chat() {
               {m.sources && m.sources.length > 0 && (
                 <div className="sources">
                   {m.sources.map((s) => (
-                    <Link key={s.n} href={s.href}>[{s.n}] {s.title}</Link>
+                    <a key={s.n} href={s.href}>[{s.n}] {s.title}</a>
                   ))}
                 </div>
               )}

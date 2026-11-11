@@ -1,27 +1,25 @@
-import type { Metadata } from "next";
 import { hackathons } from "@/data/resume";
 import ProjectList from "@/components/ProjectList";
 import ExpandCard from "@/components/ExpandCard";
 
-export const metadata: Metadata = { title: "Projects" };
-
-export default function ProjectsPage() {
+// Section 2: projects (filterable, expandable) + hackathons
+export default function Projects() {
   return (
-    <>
-      <header className="container page-head">
+    <section id="projects" className="scroll-section">
+      <header className="container section-head">
         <div className="kicker">Selected work</div>
-        <h1>Things I&apos;ve built.</h1>
+        <h2 className="section-title">Things I&apos;ve built.</h2>
         <p className="lede">Click a project to see more.</p>
       </header>
 
-      <section className="container">
+      <div className="container">
         <ProjectList />
-      </section>
+      </div>
 
-      <section className="stripes band" style={{ marginTop: 56 }}>
+      <div className="stripes band" style={{ marginTop: 56 }}>
         <div className="container">
           <div className="panel panel-title">
-            <h2>Built in a weekend</h2>
+            <h3 className="panel-heading">Built in a weekend</h3>
             <div className="kicker" style={{ marginTop: 6 }}>Hackathons</div>
           </div>
           <div className="grid-3">
@@ -38,7 +36,7 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
