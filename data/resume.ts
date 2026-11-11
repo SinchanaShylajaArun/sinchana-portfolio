@@ -67,7 +67,6 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "11k+", label: "Members served" },
   { value: "3", label: "Hackathons" },
   { value: "2", label: "Courses taught" },
 ];
@@ -193,6 +192,7 @@ export const experience: Role[] = [
     org: "Rutgers Newark, Dept. of Movement and Rehabilitation Sciences",
     when: "July 2026 – Present",
     bullets: [
+      "Building Piano Master, a Unity-based game designed for children with disabilities.",
       "Building ML-ready feature pipelines for audio and hand-landmark data to support model training and evaluation.",
       "Analyzing multimodal voice and hand-gesture data to study alertness and response patterns via signal processing and visualization.",
       "Building Unity-based games that capture real-time gameplay and behavioral data from children for the SPACE project's brain and attention analysis.",

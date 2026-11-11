@@ -77,6 +77,8 @@ const SYNONYMS: Record<string, string[]> = {
   rag: ["retrieval", "pgvector", "document"],
   search: ["retrieval", "rag"],
   research: ["benchmark", "evaluation", "analysis"],
+  kid: ["children", "child"],
+  game: ["unity", "gameplay"],
   location: ["based"],
   live: ["based"],
 };
