@@ -1,0 +1,267 @@
+/* =============================================================================
+   globals.css: styles shared by every page.
+   1. Design tokens (colors, fonts) as CSS variables
+   2. Base elements
+   3. Reusable pieces (buttons, cards, tags, panels…)
+   4. Page-specific sections
+   Phone-size rules come in step 4.
+   ========================================================================== */
+
+/* ---- 1. Design tokens -------------------------------------------------------
+   Change a color here and it changes everywhere on the site. */
+:root {
+  --navy: #1f3360;        /* headings, buttons, borders */
+  --navy-soft: #3b5a96;   /* secondary accents */
+  --butter: #f2e2a4;      /* stripes, chat bubbles, light tags */
+  --cream: #fbf6ea;       /* page background */
+  --paper: #fffdf6;       /* cards and panels */
+  --ink: #151c2c;         /* body text */
+  --muted: #58607a;       /* secondary text */
+  --line: rgba(31, 51, 96, 0.18);
+
+  /* Fonts are loaded in app/layout.tsx and exposed as these variables */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ---- 2. Base ---------------------------------------------------------------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--navy); margin: 0; line-height: 1.05; }
+h1 { font-weight: 900; font-size: clamp(42px, 6vw, 76px); letter-spacing: -0.01em; }
+h2 { font-weight: 900; font-size: clamp(32px, 4vw, 48px); }
+h3 { font-weight: 700; font-size: 24px; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 56px; }
+.center { text-align: center; }
+.kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.lede { color: var(--muted); font-size: 17px; max-width: 540px; }
+
+/* ---- 3. Reusable pieces ----------------------------------------------------- */
+
+/* Buttons */
+.btn {
+  display: inline-block; background: var(--navy); color: var(--cream);
+  border: 2px solid var(--navy); border-radius: 999px; padding: 12px 26px;
+  font: 600 14px var(--font-body); text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--navy-soft); border-color: var(--navy-soft); }
+.btn.ghost { background: transparent; color: var(--navy); }
+.btn.ghost:hover { background: var(--butter); }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+/* Butter-and-cream vertical stripes behind sections */
+.stripes { background: repeating-linear-gradient(90deg, var(--butter) 0 28px, #fbf5df 28px 56px); }
+.band { padding: 72px 0; }
+
+/* A bordered paper box */
+.panel { background: var(--paper); border: 2px solid var(--navy); border-radius: 6px; padding: 28px; }
+.panel-title { display: table; margin: 0 auto 28px; padding: 14px 28px; text-align: center; }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--navy); color: var(--cream); padding: 4px 10px; border-radius: 3px;
+}
+.award {
+  display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy);
+  border: 1.5px solid var(--navy); border-radius: 999px; padding: 3px 10px;
+}
+
+/* Page header used on every page except Home */
+.page-head { padding: 64px 0 48px; text-align: center; }
+.page-head h1 { margin-top: 10px; }
+.page-head .lede { margin: 14px auto 0; }
+.page-head .ctas { justify-content: center; }
+
+/* ---- Nav and footer --------------------------------------------------------- */
+.nav-bar { border-bottom: 1px solid var(--line); }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 56px; max-width: 1120px; margin: 0 auto; }
+.logo { font-family: var(--font-display); font-weight: 900; font-size: 22px; color: var(--navy); text-decoration: none; }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+.nav-links a:hover { border-bottom-color: var(--line); }
+.nav-links a.active { color: var(--navy); border-bottom-color: var(--navy); }
+
+.footer { background: var(--navy); color: var(--cream); }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; padding: 22px 56px; max-width: 1120px; margin: 0 auto; font-size: 14px; }
+.footer-links { display: flex; gap: 18px; }
+
+/* ---- 4. Page sections -------------------------------------------------------- */
+
+/* Home: hero */
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; padding: 72px 0; }
+.hero h1 { margin-top: 14px; }
+.hero .lede { margin-top: 18px; }
+.photo {
+  width: 100%; max-width: 380px; aspect-ratio: 4 / 5; margin-left: auto;
+  border: 10px solid var(--paper); outline: 2px solid var(--navy); outline-offset: 6px;
+  background: repeating-linear-gradient(45deg, #efe6cf 0 12px, #f7f0dc 12px 24px);
+  position: relative; overflow: hidden; /* the photo fills this frame */
+}
+.photo img { object-fit: cover; object-position: 55% 40%; } /* crop around the face */
+
+/* Home: about panel and stats */
+.about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.about h2 { margin-top: 8px; }
+.about p { margin-top: 0; color: var(--muted); }
+.about-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 20px; }
+.about-cols h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); }
+.about-cols ul { list-style: none; margin: 0; padding: 0; font-size: 14px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+.stat { text-align: center; padding: 22px; }
+.stat b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 44px; line-height: 1; color: var(--navy); }
+.stat span { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+/* Projects: filter buttons */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 28px; }
+.filter {
+  font: 500 13px var(--font-body); color: var(--navy); background: var(--paper);
+  border: 1.5px solid var(--navy); border-radius: 999px; padding: 5px 14px; cursor: pointer;
+}
+.filter.on { background: var(--navy); color: var(--cream); }
+
+/* Projects: expandable cards (built on the HTML <details> element) */
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.card { background: var(--paper); border: 2px solid var(--navy); border-radius: 6px; }
+.card[open] { grid-column: 1 / -1; }                 /* an open card spans the full row */
+.card summary { list-style: none; cursor: pointer; padding: 26px 28px; }
+.card summary::-webkit-details-marker { display: none; }
+.card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.card .year { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.card p { color: var(--muted); margin: 12px 0 16px; }
+.toggle {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--navy); color: var(--cream); display: grid; place-items: center;
+  font-weight: 600; transition: transform 0.2s;
+}
+.card[open] .toggle { transform: rotate(45deg); }    /* + turns into × */
+.card-more { border-top: 1px dashed var(--line); margin: 0 28px; padding: 18px 0 24px; }
+.card-more ul { margin: 0 0 12px; padding-left: 18px; color: var(--muted); }
+.card-more li { margin-bottom: 6px; }
+.card-more a { color: var(--navy); font-weight: 600; font-size: 14px; margin-right: 16px; }
+
+/* Experience: timeline */
+.timeline h2 { margin: 48px 0 6px; }
+.timeline h2:first-child { margin-top: 0; }
+.entry { display: grid; grid-template-columns: 200px 1fr; gap: 10px 32px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.entry .when { font-family: var(--font-display); font-style: italic; color: var(--navy); font-size: 18px; }
+.entry h3 { font-size: 22px; }
+.entry .org { color: var(--muted); font-weight: 500; margin: 2px 0 8px; }
+.entry ul { margin: 0; padding-left: 18px; color: var(--muted); }
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+.skill-grid .panel { padding: 20px; }
+.skill-grid h4 { margin: 0 0 10px; font-family: var(--font-display); font-size: 20px; color: var(--navy); }
+.skill-grid p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Ask: chat box */
+.chat { max-width: 780px; margin: 0 auto; background: var(--paper); border: 2px solid var(--navy); border-radius: 6px; overflow: hidden; }
+.chat-head { background: var(--navy); color: var(--cream); padding: 12px 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.chat-log { padding: 24px; }
+.bubble { max-width: 80%; padding: 12px 16px; border-radius: 14px; margin-bottom: 14px; font-size: 15px; }
+.bubble.ai { background: var(--butter); border-bottom-left-radius: 3px; }
+.bubble.me { background: var(--navy); color: var(--cream); margin-left: auto; border-bottom-right-radius: 3px; }
+.sources { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.sources span { font-size: 11px; background: var(--paper); border: 1px solid var(--navy-soft); color: var(--navy); border-radius: 999px; padding: 1px 9px; }
+.suggestions { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 24px 18px; }
+.suggestion { font: 13px var(--font-body); background: none; border: 1.5px dashed var(--navy-soft); color: var(--navy); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.chat-form { display: flex; gap: 10px; border-top: 2px solid var(--navy); padding: 12px; }
+.input { flex: 1; min-width: 0; font: inherit; border: 1.5px solid var(--line); background: var(--cream); border-radius: 6px; padding: 10px 12px; color: var(--ink); }
+.fine { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 880px; margin: 0 auto; }
+.how b { display: block; font-family: var(--font-display); font-size: 42px; line-height: 1; color: var(--navy-soft); }
+.how h4 { margin: 6px 0; font-family: var(--font-display); font-size: 22px; color: var(--navy); }
+.how p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; }
+.channel { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.channel span, .field span { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.field { display: block; margin-bottom: 14px; }
+.field span { display: block; margin-bottom: 4px; }
+.field .input { width: 100%; }
+textarea.input { height: 130px; resize: vertical; }
+
+/* =============================================================================
+   5. Responsive rules (step 4)
+   A media query applies the rules inside it only when the screen is narrower
+   than the given width. We design for desktop first, then override for
+   smaller screens.
+   ========================================================================== */
+
+/* ---- Tablets and small laptops (860px and below) ---------------------------- */
+@media (max-width: 860px) {
+  .container, .nav, .footer-inner { padding-left: 24px; padding-right: 24px; }
+
+  /* Two- and three-column layouts become one column */
+  /* minmax(0, 1fr) = "never wider than the screen", even if something inside is long */
+  .hero, .about, .grid-2, .grid-3, .contact, .how { grid-template-columns: minmax(0, 1fr); }
+
+  /* Hero: photo goes on top, centered, and smaller */
+  .hero { gap: 32px; padding: 40px 0 56px; }
+  .photo { order: -1; max-width: 300px; margin: 0 auto; }
+
+  .band { padding: 56px 0; }
+  .page-head { padding: 44px 0 36px; }
+
+  /* Experience: date sits above the role instead of beside it */
+  .entry { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ---- Phones (600px and below) ------------------------------------------------ */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .container, .nav, .footer-inner { padding-left: 16px; padding-right: 16px; }
+
+  /* Nav: name on its own line, links below it */
+  .nav { flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 18px; padding-bottom: 14px; }
+  .logo { font-size: 20px; }
+  .nav-links { gap: 20px; }
+
+  h1 { font-size: 40px; }
+  h2 { font-size: 30px; }
+  .photo { max-width: 240px; border-width: 6px; outline-offset: 4px; }
+
+  /* Buttons stretch to full width so they're easy to tap */
+  .ctas .btn { flex: 1; text-align: center; }
+
+  .panel { padding: 20px; }
+  .about-cols { grid-template-columns: 1fr 1fr; }
+  .stats { gap: 10px; }
+  .stat { padding: 14px 6px; }
+  .stat b { font-size: 30px; }
+  .stat span { font-size: 10px; letter-spacing: 0.1em; }
+
+  .card summary { padding: 20px; }
+  .card-more { margin: 0 20px; }
+  .card h3 { font-size: 21px; }
+
+  .chat-log { padding: 16px; }
+  .bubble { max-width: 92%; }
+  .suggestions { padding: 0 16px 14px; }
+
+  .channel { flex-direction: column; gap: 2px; }
+  .footer-inner { flex-direction: column; align-items: center; gap: 8px; }
+}
+
+/* ---- Chat (step 8): live states ---------------------------------------------- */
+.chat-log { max-height: 520px; overflow-y: auto; }
+.bubble { white-space: pre-wrap; }
+.sources a { font-size: 11px; background: var(--paper); border: 1px solid var(--navy-soft); color: var(--navy); border-radius: 999px; padding: 1px 9px; text-decoration: none; }
+.sources a:hover { background: var(--navy); color: var(--cream); }
+.thinking { opacity: 0.6; animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.25; } }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.chat-error { color: #a33; font-size: 13px; margin: 0; padding: 0 14px 12px; }
