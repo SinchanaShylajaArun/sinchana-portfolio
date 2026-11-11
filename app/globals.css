@@ -301,3 +301,30 @@ textarea.input { height: 130px; resize: vertical; }
   .section-head { padding: 48px 0 32px; }
   .section-title { font-size: 34px; }
 }
+
+/* =============================================================================
+   7. About section (quick facts + story)
+   ========================================================================== */
+.hero-intro { font-size: 19px; line-height: 1.65; max-width: 620px; }
+
+.about-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 48px; padding: 44px; }
+.about-heading { font-weight: 900; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.1; margin: 10px 0 28px; }
+
+.facts { margin: 0; display: grid; gap: 0; }
+.facts > div { padding: 12px 0; border-top: 1px solid var(--line); }
+.facts dt { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 2px 0 0; color: var(--ink); font-weight: 500; }
+
+.about-story p { margin: 0 0 18px; color: var(--muted); font-size: 17px; line-height: 1.75; }
+.about-story p:first-child { color: var(--ink); font-size: 19px; }   /* lead paragraph stands out */
+.about-story p:last-child { margin-bottom: 0; }
+
+@media (max-width: 860px) {
+  .about-panel { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 600px) {
+  .about-panel { padding: 22px; }
+  .hero-intro { font-size: 17px; }
+  .about-story p { font-size: 16px; }
+  .about-story p:first-child { font-size: 17px; }
+}

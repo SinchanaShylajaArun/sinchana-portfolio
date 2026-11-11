@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { profile } from "@/data/resume";
 
 const links = [
+  { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "ask", label: "Ask" },

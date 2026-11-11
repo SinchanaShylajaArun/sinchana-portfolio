@@ -2,6 +2,7 @@
 // (#top, #projects, #experience, #ask, #contact) that the sticky nav links to.
 
 import Home from "@/components/sections/Home";
+import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Ask from "@/components/sections/Ask";
@@ -11,6 +12,7 @@ export default function Page() {
   return (
     <>
       <Home />
+      <About />
       <Projects />
       <Experience />
       <Ask />

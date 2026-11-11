@@ -59,17 +59,33 @@ export const profile = {
   email: "sinchanasarunn@gmail.com",
   linkedin: "https://www.linkedin.com/in/sinchanasarun/",
   github: "https://github.com/SinchanaShylajaArun",
+  // The two lines under the big headline on the landing section
   intro:
-    "Hi, I'm Sinchana. I build full-stack products, retrieval systems, and computer vision tools, end to end.",
-  about:
-    "I'm a Master's student at Rutgers and a part-time lecturer for Discrete Structures and Algorithms. I like owning the whole stack: the data pipeline, the model, the API, and the interface people actually use.",
+    "Hi, I'm Sinchana. I turn coffee and curiosity into AI-powered software that people actually enjoy using.",
   openTo: "Open to software engineering and ML/AI engineering roles.",
 };
 
-export const stats = [
-  { value: "3", label: "Hackathons" },
-  { value: "2", label: "Courses taught" },
-];
+// ---- About section ---------------------------------------------------------------
+// Written in the first person for the website. Edit freely: add where you grew
+// up, what got you into CS, what you do outside of code.
+
+export const about = {
+  heading: "I build software that meets people where they are.",
+  paragraphs: [
+    "I studied Information Science and Engineering at JSS Academy of Technical Education in Bengaluru, then moved to New Jersey in 2025 for my Master's in Computer Science at Rutgers. My coursework centers on machine learning, computer vision, NLP, and foundation models.",
+    "The work I care about most sits where technology meets people who need it. At Rutgers Newark I'm building Piano Master, a Unity game for children with disabilities, alongside games that study attention and re-engage kids when they drift. At hackathons I've built tools for caregivers: EyeQ, which flags potential abuse in real time, and MedCheck, which catches missed or wrong medication doses.",
+    "I also love teaching. As a part-time lecturer I lead recitations for Discrete Structures II and Design and Analysis of Algorithms, and as a RINGS facilitator I help new international graduate students settle in, something I went through myself not long ago.",
+    "As an engineer, I like owning the whole stack: the data pipeline, the model, the API, and the interface people actually click on. Lately that means retrieval-augmented systems like DocuPilot and the assistant on this site, usually with a coffee close by.",
+  ],
+  facts: [
+    { label: "Based in", value: "New Brunswick, NJ" },
+    { label: "Studying", value: "M.S. Computer Science, Rutgers (May 2027)" },
+    { label: "Teaching", value: "CS 206 and CS 344 at Rutgers" },
+    { label: "Building", value: "Piano Master, DocuPilot, Sinch & Save" },
+    { label: "Interests", value: "RAG and LLM apps, computer vision, full-stack web" },
+    { label: "Looking for", value: "Software and ML/AI engineering roles" },
+  ],
+};
 
 // ---- Projects ----------------------------------------------------------------
 

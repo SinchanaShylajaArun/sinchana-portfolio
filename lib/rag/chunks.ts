@@ -44,7 +44,7 @@ export function buildChunks(): Chunk[] {
     href: "#top",
     text: sentence([
       `${profile.fullName} (${profile.name}) is based in ${profile.location}.`,
-      // profile.about is written as "I'm…" for the Home page; a chunk must be
+      // The site's About text is written as "I…"; a chunk must be
       // unambiguous out of context, so this one says who explicitly.
       "She is an M.S. Computer Science student at Rutgers University and a part-time lecturer for Discrete Structures and Algorithms.",
       "She likes owning the whole stack: the data pipeline, the model, the API, and the interface people actually use.",
