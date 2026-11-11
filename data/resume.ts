@@ -282,9 +282,9 @@ export const leadership: Role[] = [
   {
     title: "International Graduate Student Facilitator",
     org: "RINGS Community, Rutgers Graduate Student Association",
-    when: "Ongoing",
+    when: "Jan 2026 – Nov 2026",
     bullets: [
-      "Helping incoming international graduate students settle in through peer support, guidance, and community events.",
+      "Helped incoming international graduate students settle in through peer support, guidance, and community events.",
     ],
   },
 ];

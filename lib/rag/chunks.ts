@@ -113,7 +113,7 @@ export function buildChunks(): Chunk[] {
       title: r.title,
       section: "Leadership",
       href: "#experience",
-      text: sentence([`Leadership: ${r.title}, ${r.org}.`, ...r.bullets]),
+      text: sentence([`Leadership: ${r.title}, ${r.org}, ${r.when}.`, ...r.bullets]),
     });
   }
 
